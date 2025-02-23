@@ -1,12 +1,12 @@
 import React from 'react';
 
 const StockPurchaseForm = () => {
-return (
-<>    
-<div className="form-field">
-    <input
-        id="symbol"
-        type="text"
+    return (
+    <form className="stock-form">
+    <div className="form-field">
+        <input
+            id="symbol"
+            type="text"
         placeholder="Stock Symbol"
     />
     <input
@@ -24,8 +24,9 @@ return (
         placeholder="Purchase Price"
     />
     <button type="submit">Add Stock</button>
-</div>
-</>
-)};
+    </div>
+    </form>
+    )
+};
 
 export default StockPurchaseForm;

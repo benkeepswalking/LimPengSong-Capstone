@@ -4,7 +4,7 @@ const Dashboard = () => {
     return (
         <div className="dashboard">
             <h2>Stock List</h2>
-            <p color=' #E83845;'>No stock purchases added yet.</p>
+            <p>No stocks added yet.</p>
         </div>
 )};
 
