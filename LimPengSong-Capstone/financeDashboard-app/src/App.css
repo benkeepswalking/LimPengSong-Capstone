@@ -45,6 +45,7 @@ body {
   padding: 10px 10px;
   box-sizing: border-box;
   margin: 5px;
+  border-radius: 2px;
   font-size: medium;
 }
 
