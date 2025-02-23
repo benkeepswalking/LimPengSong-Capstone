@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  background: #f4f4f4;
+  text-align: center;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+
+}
+
+.header {
+  font-size: 12px;
+}
+
+.StockPurchaseForm {
+  background-color: #d0d0d0;
+  padding: 20px;
+  margin: 15px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px gray;
+}
+
+.dashboard {
+  background-color: #ffffff;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px gray;
+}
+
+.dashboard h2 {
+  font-size: 30px;
+}
+
+.dashboard p {
+  color: #E83845;
+  font-weight: bold;
+}
+
+.form-field input {
+  width: 25;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  margin: 5px;
+  font-size: medium;
+}
+
+button {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
