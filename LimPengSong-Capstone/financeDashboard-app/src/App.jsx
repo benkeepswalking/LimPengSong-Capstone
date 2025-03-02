@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import Header from './components/Header'
 import StockPurchaseForm from './components/StockPurchaseForm'
-import Dashboard from './components/Dashboard'
+import Dashboard from './components/Dashboard';
 import './App.css'
 
 function App() {
@@ -10,12 +10,8 @@ function App() {
   return (
     <div className="App">
       <Header title="My Finance Dashboard" />
-      <div className="StockPurchaseForm">
-        <StockPurchaseForm />
-      </div>
-      <div className="Dashboard">  
-        <Dashboard />
-      </div>
+      <StockPurchaseForm />
+      <Dashboard />      
     </div>
   )
 }
