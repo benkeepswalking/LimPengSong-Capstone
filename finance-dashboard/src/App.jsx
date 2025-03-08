@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import StockForm from './components/StockForm';
+import StockForm from './components/stockForm';
+import StockList from './components/stockList';
 
 function App() {
 
@@ -9,7 +10,7 @@ function App() {
     <>
     <h1>My Finance Dashboard</h1>
     <StockForm />
-
+    <StockList />
     </>
   )
 }

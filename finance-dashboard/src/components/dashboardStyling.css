@@ -33,3 +33,28 @@
   button:hover {
     background: #0056b3;
   }
+
+  .stockItem {
+    padding: 15px 20px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 2px gray;
+    justify-items: flex-start;
+  }
+  
+  .stockItem p {
+    margin: 5px 0;
+    line-height: 1.2;
+  }
+  
+  #field-symbol {
+    margin: 5px 0;
+    line-height: 1.2;
+    font-weight: bold;
+  }
+  
+  #field-profitLoss {
+    margin: 20px 0px 5px 0%;
+    line-height: 1.2;
+    font-weight: bold;
+  }
