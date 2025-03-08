@@ -1,6 +1,7 @@
 import "./dashboardStyling.css";
 
 function stockForm(){
+    
     return(
         <>
         <div className="formContainer">
