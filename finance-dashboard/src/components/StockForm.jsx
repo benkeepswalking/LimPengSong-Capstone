@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./DashboardStyling.css";
+import { StockContext } from "../contexts/StockContext.jsx";
 
-function StockForm({ addStock }) {
+function StockForm() {
+    const { addStock } = useContext(StockContext);
     const [symbol, setSymbol] = useState("");
     const [quantity, setQuantity] = useState("");
     const [purchasePrice, setPurchasePrice] = useState("");
@@ -10,20 +12,23 @@ function StockForm({ addStock }) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!symbol || !quantity || !purchasePrice) {
+        if (!symbol.trim() || !quantity || !purchasePrice) {
             setErrorMessage("Please fill out all fields.");
+            return;
+        }
+
+        if (quantity <= 0 || purchasePrice <= 0) {
+            setErrorMessage("Quantity and Purchase Price must be positive numbers.");
             return;
         }
 
         setErrorMessage("");
 
-        const newStock = {
-            symbol: symbol.toUpperCase(),
+        addStock({
+            symbol: symbol.trim().toUpperCase(),
             quantity: parseInt(quantity, 10),
             purchasePrice: parseFloat(purchasePrice),
-        };
-
-        addStock(newStock); // Add stock via context
+        });
 
         setSymbol("");
         setQuantity("");

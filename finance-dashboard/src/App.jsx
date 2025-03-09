@@ -1,21 +1,15 @@
-import { useState } from 'react';
-import './App.css';
-import StockForm from './components/StockForm';
-import StockList from './components/StockList';
+import "./App.css";
+import StockForm from "./components/StockForm";
+import StockList from "./components/StockList";
+import { StockProvider } from "./contexts/StockContext.jsx";
 
 function App() {
-    const [stocks, setStocks] = useState([]);
-
-    const addStock = (newStock) => {
-        setStocks([...stocks, newStock]);
-    };
-
     return (
-        <>
+        <StockProvider>
             <h1>My Finance Dashboard</h1>
-            <StockForm addStock={addStock} />
-            <StockList stocks={stocks} />
-        </>
+            <StockForm />
+            <StockList />
+        </StockProvider>
     );
 }
 

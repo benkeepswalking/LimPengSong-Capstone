@@ -1,11 +1,21 @@
+:root {
+    --form-bg: #d0d0d0;
+    --input-bg: #ffffff;
+    --input-border: gray;
+    --btn-bg: #007BFF;
+    --btn-hover-bg: #0056b3;
+    --text-dark: #000000;
+    --text-light: #ffffff;
+}
+
+/* Form Styling */
 .formContainer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    flex-flow: wrap;
-    column-gap: 10px;
-    row-gap: 10px;
+    gap: 10px;
     align-items: center;
-    background-color: #d0d0d0;
+    background-color: var(--form-bg);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 5px 5px 5px gray;
@@ -14,29 +24,35 @@
 .formContainer input {
     font-size: 1rem;
     padding-left: 10px;
-    border: 1px solid gray;
+    border: 1px solid var(--input-border);
     height: 38px;
     border-radius: 5px;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: var(--input-bg);
+    color: var(--text-dark);
 }
 
+/* Button Styling */
 button {
     height: 40px;
-    background: #007BFF;
-    color: #ffffff;
+    background: var(--btn-bg);
+    color: var(--text-light);
     cursor: pointer;
     border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    padding: 0.6em 1.2em;
+    transition: background 0.3s ease-in-out;
 }
 
 button:hover {
-    background: #0056b3;
+    background: var(--btn-hover-bg);
 }
 
+/* Stock Item Styling */
 .stockItem {
     padding: 15px 20px;
     border-radius: 5px;
-    background-color: #ffffff;
+    background-color: var(--input-bg);
     box-shadow: 2px 2px 2px gray;
     justify-items: flex-start;
     margin: 10px;
@@ -48,13 +64,23 @@ button:hover {
 }
 
 .field-symbol {
-    margin: 5px 0;
-    line-height: 1.2;
     font-weight: bold;
 }
 
 .field-profitLoss {
-    margin: 15px 5px 0%;
-    line-height: 1.2;
     font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --form-bg: #333;
+        --input-bg: #444;
+        --input-border: #666;
+        --btn-bg: #1a73e8;
+        --btn-hover-bg: #125ab6;
+        --text-dark: rgba(255, 255, 255, 0.87);
+        --text-light: #ffffff;
+    }
 }

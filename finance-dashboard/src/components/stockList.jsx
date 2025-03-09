@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import "./DashboardStyling.css";
+import { StockContext } from "../contexts/StockContext.jsx";
 
-const API_KEY = "X0CXTX83GWDC6REI";
+const API_KEY = import.meta.env.VITE_ALPHAVANTAGE_API_KEY;
 const BASE_URL = "https://www.alphavantage.co/query";
 
-function StockList({ stocks = [] }) {
+function StockList() {
+    const { stocks } = useContext(StockContext);
     const [livePrices, setLivePrices] = useState({});
-    const [fetchedStocks, setFetchedStocks] = useState(new Set());
     const [loading, setLoading] = useState(false);
+    const fetchedStocksRef = useRef(new Set()); // Tracks already fetched stock symbols
 
     async function fetchWithRetry(stockSymbol, retries = 3, delayMs = 1000) {
         for (let i = 0; i < retries; i++) {
@@ -30,18 +32,21 @@ function StockList({ stocks = [] }) {
     useEffect(() => {
         async function fetchStockPrices() {
             setLoading(true);
-            const newStocks = stocks.filter(stock => !fetchedStocks.has(stock.symbol));
+            const newStocks = stocks.filter(stock => !fetchedStocksRef.current.has(stock.symbol));
 
-            if (newStocks.length === 0) return;
+            if (newStocks.length === 0) {
+                setLoading(false);
+                return;
+            }
 
             const prices = {};
             await Promise.all(newStocks.map(async (stock) => {
                 const price = await fetchWithRetry(stock.symbol);
-                prices[stock.symbol] = price;
+                prices[stock.symbol] = price || "N/A"; // Prevents undefined values
             }));
 
             setLivePrices(prevPrices => ({ ...prevPrices, ...prices }));
-            setFetchedStocks(prevSet => new Set([...prevSet, ...newStocks.map(stock => stock.symbol)]));
+            newStocks.forEach(stock => fetchedStocksRef.current.add(stock.symbol));
             setLoading(false);
         }
 
@@ -53,7 +58,7 @@ function StockList({ stocks = [] }) {
     return (
         <div>
             <h2>Stock List</h2>
-            {loading ? <p>Fetching latest stock prices...</p> : null}
+            {loading && <p>Fetching latest stock prices...</p>}
             {stocks.length === 0 ? (
                 <p>No stocks added yet</p>
             ) : (
