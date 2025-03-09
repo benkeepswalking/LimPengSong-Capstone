@@ -31,3 +31,17 @@ h1, h2, p {
     --primary-text: rgba(255, 255, 255, 0.87);
   }
 }
+
+/* Flex container for title and image */
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* Space between image and text */
+}
+
+/* Adjust image size */
+.finance-icon {
+  width: 50px; /* Adjust size as needed */
+  height: auto;
+}
