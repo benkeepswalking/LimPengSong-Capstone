@@ -1,7 +1,6 @@
-import "./dashboardStyling.css";
+import "./DashboardStyling.css";
 
-function stockForm(){
-    
+function StockForm(){
     return(
         <>
         <div className="formContainer">
@@ -32,4 +31,4 @@ function stockForm(){
     )
 }
 
-export default stockForm
+export default StockForm

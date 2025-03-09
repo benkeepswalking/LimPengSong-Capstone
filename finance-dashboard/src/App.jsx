@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import StockForm from './components/stockForm';
-import StockList from './components/stockList';
+import StockForm from './components/stockForm'
+import StockList from './components/stockList'
 
 function App() {
 

@@ -1,6 +1,6 @@
-import "./dashboardStyling.css";
+import "./DashboardStyling.css";
 
-function StockList() {
+function StockList(){
 
     return (
     <>
@@ -19,4 +19,4 @@ function StockList() {
     )
 }
 
-export default StockList;
+export default StockList
