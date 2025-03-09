@@ -19,42 +19,42 @@
     border-radius: 5px;
     background-color: #ffffff;
     color: #000000;
-  }
-  
-  button {
+}
+
+button {
     height: 40px;
     background: #007BFF;
     color: #ffffff;
     cursor: pointer;
     border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background: #0056b3;
-  }
+}
 
-  .stockItem {
+button:hover {
+    background: #0056b3;
+}
+
+.stockItem {
     padding: 15px 20px;
     border-radius: 5px;
     background-color: #ffffff;
     box-shadow: 2px 2px 2px gray;
     justify-items: flex-start;
-  }
-  
-  .stockItem p {
+    margin: 10px;
+}
+
+.stockItem p {
     margin: 5px 0;
     line-height: 1.2;
-  }
-  
-  #field-symbol {
+}
+
+#field-symbol {
     margin: 5px 0;
     line-height: 1.2;
     font-weight: bold;
-  }
-  
-  #field-profitLoss {
-    margin: 20px 0px 5px 0%;
+}
+
+#field-profitLoss {
+    margin: 15px 0px 0%;
     line-height: 1.2;
     font-weight: bold;
-  }
+}

@@ -9,11 +9,11 @@ function StockList({ stocks = [] }) {
             ) : (
                 stocks.map((stock, index) => (
                     <div key={index} className="stockItem">
-                        <p className="field-symbol">Symbol: {stock.symbol}</p>
+                        <p id="field-symbol">Symbol: {stock.symbol}</p>
                         <p>Quantity: {stock.quantity}</p>
                         <p>Purchase Price: {stock.purchasePrice}</p>
                         <p>Current Price: -</p> {/* Placeholder for live price */}
-                        <p className="field-profitLoss">Profit/Loss: -</p>
+                        <p id="field-profitLoss">Profit/Loss: -</p>
                     </div>
                 ))
             )}
