@@ -84,3 +84,13 @@ button:hover {
         --text-light: #ffffff;
     }
 }
+
+/* Profit (Green) */
+.profit {
+    color: green;
+}
+
+/* Loss (Red) */
+.loss {
+    color: red;
+}

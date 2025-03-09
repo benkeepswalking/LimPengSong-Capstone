@@ -9,7 +9,7 @@ function StockList() {
     const { stocks } = useContext(StockContext);
     const [livePrices, setLivePrices] = useState({});
     const [loading, setLoading] = useState(false);
-    const fetchedStocksRef = useRef(new Set()); // Tracks already fetched stock symbols
+    const fetchedStocksRef = useRef(new Set());
 
     async function fetchWithRetry(stockSymbol, retries = 3, delayMs = 1000) {
         for (let i = 0; i < retries; i++) {
@@ -42,7 +42,7 @@ function StockList() {
             const prices = {};
             await Promise.all(newStocks.map(async (stock) => {
                 const price = await fetchWithRetry(stock.symbol);
-                prices[stock.symbol] = price || "N/A"; // Prevents undefined values
+                prices[stock.symbol] = price || "N/A";
             }));
 
             setLivePrices(prevPrices => ({ ...prevPrices, ...prices }));
@@ -62,19 +62,32 @@ function StockList() {
             {stocks.length === 0 ? (
                 <p>No stocks added yet</p>
             ) : (
-                stocks.map((stock, index) => (
-                    <div key={index} className="stockItem">
-                        <p className="field-symbol">Symbol: {stock.symbol}</p>
-                        <p>Quantity: {stock.quantity}</p>
-                        <p>Purchase Price: ${stock.purchasePrice.toFixed(2)}</p>
-                        <p>Current Price: {livePrices[stock.symbol] !== "N/A" ? `$${livePrices[stock.symbol]}` : "Unavailable"}</p>
-                        <p className="field-profitLoss">
-                            Profit/Loss: {livePrices[stock.symbol] && !isNaN(livePrices[stock.symbol])
-                                ? `$${((livePrices[stock.symbol] - stock.purchasePrice) * stock.quantity).toFixed(2)}`
-                                : "-"}
-                        </p>
-                    </div>
-                ))
+                stocks.map((stock, index) => {
+                    const currentPrice = livePrices[stock.symbol];
+                    const profitLoss = currentPrice !== "N/A"
+                        ? (currentPrice - stock.purchasePrice) * stock.quantity
+                        : null;
+
+                    // Format profit/loss value correctly with sign placement
+                    const formattedProfitLoss =
+                        profitLoss !== null
+                            ? profitLoss > 0
+                                ? `+$${profitLoss.toFixed(2)}`
+                                : `-$${Math.abs(profitLoss).toFixed(2)}`
+                            : "-";
+
+                    return (
+                        <div key={index} className="stockItem">
+                            <p className="field-symbol">Symbol: {stock.symbol}</p>
+                            <p>Quantity: {stock.quantity}</p>
+                            <p>Purchase Price: ${stock.purchasePrice.toFixed(2)}</p>
+                            <p>Current Price: {currentPrice !== "N/A" ? `$${currentPrice}` : "Unavailable"}</p>
+                            <p className={`field-profitLoss ${profitLoss > 0 ? "profit" : profitLoss < 0 ? "loss" : ""}`}>
+                                Profit/Loss: {formattedProfitLoss}
+                            </p>
+                        </div>
+                    );
+                })
             )}
         </div>
     );
