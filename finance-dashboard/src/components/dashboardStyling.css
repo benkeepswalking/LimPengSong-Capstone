@@ -8,7 +8,6 @@
     --text-light: #ffffff;
 }
 
-/* Form Styling */
 .formContainer {
     display: flex;
     flex-wrap: wrap;
@@ -31,7 +30,6 @@
     color: var(--text-dark);
 }
 
-/* Button Styling */
 button {
     height: 40px;
     background: var(--btn-bg);
@@ -48,7 +46,6 @@ button:hover {
     background: var(--btn-hover-bg);
 }
 
-/* Stock Item Styling */
 .stockItem {
     padding: 15px 20px;
     border-radius: 5px;
@@ -69,10 +66,9 @@ button:hover {
 
 .field-profitLoss {
     font-weight: bold;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
-/* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
     :root {
         --form-bg: #333;
@@ -85,12 +81,10 @@ button:hover {
     }
 }
 
-/* Profit (Green) */
 .profit {
     color: green;
 }
 
-/* Loss (Red) */
 .loss {
     color: red;
 }
