@@ -47,14 +47,14 @@ button:hover {
     line-height: 1.2;
 }
 
-#field-symbol {
+.field-symbol {
     margin: 5px 0;
     line-height: 1.2;
     font-weight: bold;
 }
 
-#field-profitLoss {
-    margin: 15px 0px 0%;
+.field-profitLoss {
+    margin: 15px 5px 0%;
     line-height: 1.2;
     font-weight: bold;
 }
