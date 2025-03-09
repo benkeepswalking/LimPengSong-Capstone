@@ -18,12 +18,12 @@ function StockForm({ addStock }) {
         setErrorMessage("");
 
         const newStock = {
-            symbol,
+            symbol: symbol.toUpperCase(),
             quantity: parseInt(quantity, 10),
             purchasePrice: parseFloat(purchasePrice),
         };
 
-        addStock(newStock); // Send new stock data to App.jsx
+        addStock(newStock); // Add stock via context
 
         setSymbol("");
         setQuantity("");
