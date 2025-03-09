@@ -1,22 +1,26 @@
 import "./DashboardStyling.css";
 
-function StockList(){
-
+function StockList({ stocks }) {
     return (
-    <>
-        <div>
-        <h2>Stock List</h2>
-        <p>No stocks added yet</p>
-        </div>
-        <div className="stockItem">
-            <p id="field-symbol">Symbol: AAPL</p>
-            <p>Quantity: 1</p>
-            <p>Purchase Price: 1</p>
-            <p>Current Price: 100</p>
-            <p id="field-profitLoss">Profit/Loss:</p>
-        </div>
-    </>
-    )
+        <>
+            <div>
+                <h2>Stock List</h2>
+                {stocks.length === 0 ? (
+                    <p>No stocks added yet</p>
+                ) : (
+                    stocks.map((stock, index) => (
+                        <div key={index} className="stockItem">
+                            <p className="field-symbol">Symbol: {stock.symbol}</p>
+                            <p>Quantity: {stock.quantity}</p>
+                            <p>Purchase Price: {stock.purchasePrice}</p>
+                            <p>Current Price: -</p> {/* Placeholder for live price */}
+                            <p className="field-profitLoss">Profit/Loss: -</p>
+                        </div>
+                    ))
+                )}
+            </div>
+        </>
+    );
 }
 
-export default StockList
+export default StockList;
