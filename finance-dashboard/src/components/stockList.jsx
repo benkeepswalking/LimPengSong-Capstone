@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useContext } from "react";
 import "./DashboardStyling.css";
 import { StockContext } from "../contexts/StockContext.jsx";
 
-const API_KEY = import.meta.env.VITE_ALPHAVANTAGE_API_KEY;
+const API_KEY = "X0CXTX83GWDC6REI";
 const BASE_URL = "https://www.alphavantage.co/query";
 
 function StockList() {
@@ -68,7 +68,6 @@ function StockList() {
                         ? (currentPrice - stock.purchasePrice) * stock.quantity
                         : null;
 
-                    // Format profit/loss value correctly with sign placement
                     const formattedProfitLoss =
                         profitLoss !== null
                             ? profitLoss > 0

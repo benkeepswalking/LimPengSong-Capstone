@@ -2,7 +2,7 @@ import "./App.css";
 import StockForm from "./components/StockForm";
 import StockList from "./components/StockList";
 import { StockProvider } from "./contexts/StockContext.jsx";
-import financeIcon from "./assets/finance-icon.png"; // ✅ Import the image
+import financeIcon from "./assets/finance-icon.png";
 
 function App() {
     return (

@@ -66,7 +66,7 @@ button:hover {
 
 .field-profitLoss {
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 @media (prefers-color-scheme: dark) {
