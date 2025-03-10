@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useContext } from "react";
 import "./DashboardStyling.css";
 import { StockContext } from "../contexts/StockContext.jsx";
 
-const API_KEY = "X0CXTX83GWDC6REI";
+const API_KEY = import.meta.env.VITE_ALPHAVANTAGE_API_KEY;
 const BASE_URL = "https://www.alphavantage.co/query";
 
 function StockList() {
